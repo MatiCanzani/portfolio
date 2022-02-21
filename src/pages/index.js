@@ -1,15 +1,25 @@
-import * as React from "react"
-import Layout from "../components/Layout"
+import * as React from "react";
+import Layout from "../components/Layout";
+import About from "../components/About";
+import Contact from "../components/Contact";
+import Works from "../components/Works";
+import Hero from "../components/Hero";
 
+import "../styles/main.scss";
 
 // markup
 const IndexPage = () => {
   return (
-    <main >
+    <main>
       <title>Mati Portfolio</title>
-      <Layout />
+      <Layout>
+        <Hero />
+        <About />
+        <Works />
+        <Contact />
+      </Layout>
     </main>
-  )
-}
+  );
+};
 
-export default IndexPage
+export default IndexPage;

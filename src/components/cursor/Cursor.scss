@@ -1,0 +1,34 @@
+@import '../../styles/variables';
+
+.cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  z-index: 10000;
+  pointer-events: none;
+}
+.cursor-dot {
+    @extend .cursor;
+  width: 10px;
+  height: 10px;
+  background-color: $yellow;
+  z-index: 10001;
+
+}
+.cursor-outline {
+    @extend .cursor;
+  width: 40px;
+  height: 40px;
+  border: 1px solid $light-yellow;
+  background-color: none; 
+  opacity: 0.7;
+
+}
+
+@media screen and (max-width: 768px) {
+  .cursor{
+    display: none;
+    cursor: pointer;
+  }
+}

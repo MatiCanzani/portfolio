@@ -1,0 +1,23 @@
+@import "../styles/variables.scss";
+
+html,
+body {
+  font-size: 62.5%;
+  box-sizing: border-box;
+  background-color: $primary;
+  *,
+  *:before,
+  *:after {
+    box-sizing: inherit;
+  }
+}
+
+* {
+  font-size: 1.6rem;
+  line-height: 2;
+  /* font-family: "Kumbh Sans", sans-serif; */
+  font-family: "Lato", sans-serif;
+  color: white;
+  cursor: none;
+}
+

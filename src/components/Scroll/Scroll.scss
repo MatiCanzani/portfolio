@@ -1,0 +1,84 @@
+@use "../../styles/variables.scss";
+
+@keyframes scrolDown {
+  0% {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  80% {
+    transform: translate(0, 20px);
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes scrolDown {
+  0% {
+    -webkit-transform: translate(0, 0);
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  80% {
+    -webkit-transform: translate(0, 20px);
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+#scroll {
+  display: none;
+  @media (min-width: 768px) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+.scroll-icon {
+  bottom: 0;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: variables.$white;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  transition: opacity 0.3s;
+  p {
+    margin: 0;
+  }
+  &:hover {
+    opacity: 0.5;
+  }
+  span {
+    position: relative;
+    width: 20px;
+    height: 35px;
+    border: 2px solid #fff;
+    border-radius: 50px;
+    box-sizing: border-box;
+    &:before {
+      position: absolute;
+      top: 5px;
+      left: 50%;
+      content: "";
+      width: 5px;
+      height: 5px;
+      margin-left: -2.5px;
+      background-color: #fff;
+      border-radius: 100%;
+      -webkit-animation: scrolDown 2s infinite;
+      animation: scrolDown 2s infinite;
+      box-sizing: border-box;
+    }
+  }
+}

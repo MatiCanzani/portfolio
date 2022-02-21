@@ -1,8 +1,9 @@
-import React from "react"
-import Helmet from "react-helmet"
-import Header from "./header"
-import Cursor from "./cursor/Cursor"
-
+import React from "react";
+import Helmet from "react-helmet";
+import Header from "../Header/index";
+import Cursor from "../cursor/index";
+import Footer from "../Footer";
+import "./Layout.scss";
 
 const Layout = ({ children }) => {
   return (
@@ -23,12 +24,14 @@ const Layout = ({ children }) => {
           rel="stylesheet"
         />
       </Helmet>
-      <Header />
       <Cursor />
-      {children}
+      <div className="container-fluid">
+        <Header />
+        {children}
+      </div>
+      <Footer />
     </>
-  )
-}
+  );
+};
 
-
-export default Layout
+export default Layout;
