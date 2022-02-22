@@ -2,17 +2,16 @@ import React, { useState } from "react";
 
 import "./Scroll.scss";
 
-const isBrowser = () => typeof window !== "undefined";
-
 const Scroll = () => {
+  const isBrowser = typeof window !== "undefined";
+  console.log(isBrowser);
   const [scroll, setScroll] = useState(true);
-
-  const handleScroll = () => {
-    if (isBrowser) {
-      window.addEventListener("scroll", handleScroll);
+  if (isBrowser) {
+    const handleScroll = () => {
       window.scrollY <= 80 ? setScroll(true) : setScroll(false);
-    } 
-  };
+    };
+    window.addEventListener("scroll", handleScroll);
+  }
   return (
     <>
       <div className={scroll ? "scroll" : "scroll__hidden"}>
