@@ -3,21 +3,32 @@
 
 .footer {
   background-color: variables.$blue;
-  max-width: 100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
+  @media (min-width: 768px) {
+    justify-content: center;
+    height: 20rem; 
+  }
 }
 .contact-info {
   color: aliceblue;
-  width: 100%;
+  // width: 100%;
+  margin:  0 auto;
+
+}
+
+.copy-rights{
+  P{
+    font-size: 1.3rem;
+  }
 }
 
 .social-media {
   display: flex;
   align-items: center;
-  margin: auto;
   gap: 3rem;
   @media (min-width: 768px) {
     flex-direction: row;

@@ -30,7 +30,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact">
+    <section id="contact" className="section">
       <h2> Interested in working with us? </h2>
       <h2> Get in touch!</h2>
       <div className="section-contact">
@@ -76,7 +76,8 @@ const Contact = () => {
                 name="message"
                 placeholder="your message"
                 onChange={handleChange}
-                rows="4" cols="50"
+                rows="4"
+                cols="50"
               ></textarea>
             </p>
           </div>

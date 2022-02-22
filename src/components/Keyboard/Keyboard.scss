@@ -1,0 +1,212 @@
+@use "../../styles/variables";
+.intro {
+  width: 90%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-bottom: 10rem;
+  justify-content: center;
+  @media (min-width: 768px) {
+    width: 100%;
+  }
+}
+
+.name {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 3rem auto;
+  width: 100%;
+  text-transform: uppercase;
+
+  h1 {
+    margin: 0 auto;
+  }
+  &__filled {
+    font-size: 5rem;
+    height: 6rem;
+  }
+  &__hollow {
+    font-size: 5rem;
+    height: 6rem;
+    -webkit-text-fill-color: variables.$primary;
+    -webkit-text-stroke: 1.2px variables.$white;
+    color: black;
+  }
+}
+.title {
+  @extend .name;
+}
+
+@media (min-width: 768px) {
+  .name {
+    flex-direction: row;
+    gap: 2rem;
+    &__filled {
+      font-size: 7rem;
+    }
+    &__hollow {
+      font-size: 7rem;
+      -webkit-text-fill-color: variables.$primary;
+      -webkit-text-stroke: 1.2px variables.$white;
+      color: variables.$primary;
+    }
+    h1 {
+      margin: 0;
+    }
+  }
+  .title {
+    @extend .name;
+    // align-items: flex-end;
+  }
+}
+.keyboard {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .keyboard {
+    display: block;
+    text-align: center;
+    font-size: 1.6rem;
+    font-family: sans-serif;
+    width: 100%;
+    max-width: 800px;
+    padding-bottom: 16rem;
+
+    &__row {
+        display: inline-block;
+        height: 3rem;
+        margin: 0.2rem auto;
+      }
+    
+     &__row--h1 {
+        height: 3rem;
+        line-height: 1.4rem;
+      }
+    
+     &__row--h3 {
+        height: 3.3rem;
+      }
+    
+     &__row > * {
+        position: relative;
+        background: #333;
+        text-align: center;
+        color: #eee;
+        float: left;
+        border-radius: 0.3rem;
+        margin: 0.1rem;
+        padding: 0.1rem;
+        width: 3rem;
+        height: 100%;
+        box-sizing: border-box;
+        cursor: pointer;
+        -webkit-user-select: none;
+        border: 1px solid #444;
+        box-shadow: 0 0.2rem 0 0.05rem #222;
+        border-bottom-color: #555;
+      }
+    
+     &__row--h1 > div {
+        width: 3.5rem;
+      }
+    
+     &__row > div[data-pressed],
+     &__row > div:active {
+        background: #2a2a2a;
+        color: #aaa;
+        position: relative;
+        top: 0.2rem;
+        box-shadow: 0 0 0 0.05rem black;
+      }
+  }
+
+
+
+  .key {
+      &--special{
+          background-color: rgb(255, 89, 23);
+      }
+    &--double {
+      background-color: rgb(94, 92, 92);
+    }
+    &--w1 {
+      width: 3.5rem;
+    }
+    &--w3 {
+      width: 4.6rem;
+    }
+    &--w4 {
+      width: 6em;
+    }
+
+    &--w5 {
+      width: 7.9rem;
+    }
+
+    &--w6 {
+      width: 9.6rem;
+    }
+
+    &--space {
+      width: 18rem;
+    }
+
+    &--letter {
+      line-height: 2.8rem;
+      width: 3rem;
+      background-color: rgb(94, 92, 92);
+    }
+
+    &--bottom-left > * {
+      position: absolute;
+      text-align: left;
+      bottom: 0.4rem;
+      left: 0.3rem;
+    }
+
+    &--bottom-right > * {
+      position: absolute;
+      text-align: right;
+      bottom: 0.4rem;
+      right: 0.3rem;
+    }
+
+    &--fn > * {
+      font-size: 0.6rem;
+      line-height: 1rem;
+      padding-top: 1.2rem;
+      padding-right: 0.2rem;
+      text-align: right;
+      float: right;
+    }
+
+    &--word > * {
+      font-size: 0.8rem;
+    }
+
+    &--arrow--tall > *,
+    &--arrow > * {
+      font-size: 0.5rem;
+      line-height: 1.5rem;
+    }
+    
+    &--arrow {
+        height: 1.8rem;
+        margin-top: 1.7rem;
+        line-height: 0.3rem;
+        background-color: rgb(94, 92, 92);
+    }
+
+    &--arrow--tall > * {
+      padding-top: 0rem;
+    }
+  }
+
+  .keyboard {
+    &__row {
+      text-align: center;
+    }
+  }
+}

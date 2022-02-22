@@ -1,30 +1,22 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
+import { gsap } from "gsap";
 import "./Hero.scss";
 import Scroll from "../Scroll";
-import { graphql } from "gatsby"
-import useImage from "../../hooks/useImage";
+import Keyboard from "../Keyboard";
 
 const Hero = () => {
-  const image = useImage()
+  const boxRef = useRef();
+  useEffect(() => {
+    gsap.from(boxRef.current, { opacity: "0", delay: 0.5 });
+    gsap.to(boxRef.current, { opacity: "1", duration: "2", delay: "2" });
+  });
 
   return (
-    <section className="hero-cntr">
-      {/* <div className="hero-cntr"> */}
-        <div className="name">
-          <h1 className="name__filled">MATIAS</h1>
-          <h1 className="name__hollow">CANZANI</h1>
-            <img src={image} alt="" />
-        </div>
-        <div className="title">
-          <h2 className="title__hollow">WEB </h2>
-          <h2 className="title__filled">DEVELOPER</h2>
-        </div>
-        <Scroll />
-      {/* </div> */}
+    <section className="section hero-cntr" ref={boxRef}>
+      <Keyboard />
+      <Scroll />
     </section>
   );
 };
 
 export default Hero;
-
-

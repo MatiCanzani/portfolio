@@ -34,12 +34,20 @@
   }
 }
 
-#scroll {
+.scroll {
   display: none;
   @media (min-width: 768px) {
     display: flex;
     justify-content: center;
     align-items: center;
+    &__hidden {
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: opacity 1s;  
+      opacity: 0;
+    }
   }
 }
 .scroll-icon {
@@ -53,6 +61,7 @@
   letter-spacing: 0.1em;
   text-decoration: none;
   transition: opacity 0.3s;
+
   p {
     margin: 0;
   }
