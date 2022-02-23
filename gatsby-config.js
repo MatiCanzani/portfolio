@@ -10,6 +10,7 @@ module.exports = {
     "gatsby-plugin-sitemap",
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
+    "gatsby-plugin-netlify",
     {
       resolve: "gatsby-plugin-anchor-links",
       options: {

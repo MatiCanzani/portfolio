@@ -1,15 +1,28 @@
 import React, { useEffect, useState } from "react";
-// import { next } from "./keyboard";
 import "./Keyboard.scss";
 
 const Keyboard = () => {
-  // const [name, setName] = useState([]);
   const [name1, setName1] = useState([]);
   const [name2, setName2] = useState([]);
   const [name3, setName3] = useState([]);
   const [name4, setName4] = useState([]);
 
-  const pressKey = (char) => {
+  useEffect(() => {
+    setTimeout(() => {
+      renderName();
+    }, 300);
+    setTimeout(() => {
+      renderLastName();
+    }, 1000);
+    setTimeout(() => {
+      renderTitle();
+    }, 2000);
+    setTimeout(() => {
+      renderFuction();
+    }, 3000);
+  }, []);
+
+  const pressKey = async (char) => {
     const key = document.querySelector(
       '[data-char*="' + char.toUpperCase() + '"]'
     );
@@ -18,24 +31,39 @@ const Keyboard = () => {
     }, 200);
     setTimeout(() => {
       key.removeAttribute("data-pressed");
-    }, 500);
+    }, 300);
   };
 
-  useEffect(() => {
-    setTimeout(() => {
-      renderName();
-    }, 500);
-    setTimeout(() => {
-      renderLastName();
-    }, 1700);
-    setTimeout(() => {
-      renderTitle();
-    }, 3000);
-    setTimeout(() => {
-      renderFuction();
-    }, 3800);
-  }, []);
+  const getTitle = (title) => {
+    let name = title;
+    let queue = name;
+    let originalQueue = name;
 
+    const next = async () => {
+      let fistLetter = queue[0];
+      queue = queue.slice(1);
+      name = originalQueue.slice(0, originalQueue.length - queue.length);
+      pressKey(fistLetter);
+
+      if (queue.length) {
+        setTimeout(next, Math.random() * 200 + 50);
+      }
+      if (title === firtName) {
+        setName1((name1) => [...name1, fistLetter]);
+      }
+      if (title === lastName) {
+        setName2((name2) => [...name2, fistLetter]);
+      }
+      if (title === titleOne) {
+        setName3((name3) => [...name3, fistLetter]);
+      }
+      if (title === titleTwo) {
+        setName4((name4) => [...name4, fistLetter]);
+      }
+    };
+    let name2 = name;
+    setTimeout(() => next(name2), 500);
+  };
   const firtName = "matias";
   const lastName = "canzani";
   const titleOne = "web";
@@ -57,41 +85,9 @@ const Keyboard = () => {
     getTitle(titleTwo);
   };
 
-  const getTitle = (title) => {
-    let name = title;
-    let queue = name;
-    let originalQueue = name;
-
-    const next = () => {
-      let fistLetter = queue[0];
-      queue = queue.slice(1);
-      name = originalQueue.slice(0, originalQueue.length - queue.length);
-      pressKey(fistLetter);
-      if (queue.length) {
-        setTimeout(next, Math.random() * 200 + 50);
-      }
-      if (title === firtName) {
-        setName1((name1) => [...name1, fistLetter]);
-      }
-      if (title === lastName) {
-        setName2((name2) => [...name2, fistLetter]);
-      }
-
-      if (title === titleOne) {
-        setName3((name3) => [...name3, fistLetter]);
-      }
-
-      if (title === titleTwo) {
-        setName4((name4) => [...name4, fistLetter]);
-      }
-    };
-    let name2 = name;
-    setTimeout(() => next(name2), 500);
-  };
-
   return (
     <>
-      <div className = "intro">
+      <div className="intro">
         <div className="name">
           <h1 className="name__filled">{name1}</h1>
           <h1 className="name__hollow">{name2}</h1>

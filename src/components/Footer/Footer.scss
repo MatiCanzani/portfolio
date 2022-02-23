@@ -9,13 +9,13 @@
   justify-content: flex-end;
   align-items: center;
   @media (min-width: 768px) {
+    margin-left: 0 !important;
     justify-content: center;
-    height: 20rem; 
+    height: 100%; 
   }
 }
 .contact-info {
   color: aliceblue;
-  // width: 100%;
   margin:  0 auto;
 
 }

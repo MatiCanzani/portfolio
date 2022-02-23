@@ -4,7 +4,6 @@ import "./Scroll.scss";
 
 const Scroll = () => {
   const isBrowser = typeof window !== "undefined";
-  console.log(isBrowser);
   const [scroll, setScroll] = useState(true);
   if (isBrowser) {
     const handleScroll = () => {
