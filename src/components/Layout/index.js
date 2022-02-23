@@ -7,7 +7,7 @@ import Cursor from "../cursor/index";
 import Footer from "../Footer";
 import "./Layout.scss";
 
-// gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger);
 
 // let panels = gsap.utils.toArray(".section"),
 //   scrollTween;
